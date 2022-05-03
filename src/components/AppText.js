@@ -64,7 +64,11 @@ export const presets = {
 };
 
 const AppText = ({children, ...props}) => {
-  const {preset = TEXT_PRESETS.DEFAULT, style: styleOverride, ...rest} = props;
+  const {
+    preset = TEXT_PRESETS.DEFAULT,
+    style: styleOverride,
+    ...rest
+  } = props;
   return (
     <Text style={[presets[preset], styleOverride]} {...rest}>
       {children}

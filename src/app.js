@@ -6,11 +6,12 @@ import Button from './components/Button/Button';
 import {Backward, ForwardArrow, Heart, Plus} from './assets/icons';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
+import Product from 'components/Product/Product';
 
 export default function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Button title="home page" width={196} leftIcon={Backward} />
+      {/* <Button title="home page" width={196} leftIcon={Backward} />
 
       <Button
         preset={BUTTON_PRESETS.SECONDARY}
@@ -57,10 +58,13 @@ export default function App() {
         rightIconStyle={{
           marginLeft: 24,
         }}
-      />
+      /> */}
 
-      <Header/>
-      <Footer/>
+      <Header />
+
+      <Product />
+
+      <Footer />
     </SafeAreaView>
   );
 }
