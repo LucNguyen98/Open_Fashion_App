@@ -10,5 +10,5 @@ export {default as Twitter} from './Twitter';
 export {default as YouTube} from './YouTube';
 export {default as Instagram} from './Instagram';
 export {default as Line} from './Line';
-
 export {default as Star} from './Star';
+export {default as DotRectangle} from './Dot_Rectangle';

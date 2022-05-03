@@ -1,5 +1,5 @@
 import {StyleSheet, Image, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import AppText from 'components/AppText';
 import {TEXT_PRESETS} from 'constants/theme';
 import {COLORS} from 'themes/colors';
@@ -9,24 +9,25 @@ import Button from 'components/Button/Button';
 import {Heart, Star} from 'assets/icons';
 import {Product1} from 'assets/images';
 
-export default function ListView() {
-  const renderOptionSize = () => {
-    return (
-      <View style={styles.row}>
-        <AppText preset={TEXT_PRESETS.BODY_SMALL}>Size</AppText>
-        <View style={[{flexWrap: 'wrap', marginLeft: scale(6)}, styles.row]}>
-          {['S', 'M', 'L'].map((item, index) => {
-            return (
-              <Button key={index + ''} style={styles.size}>
-                <AppText preset={TEXT_PRESETS.BODY_SMALL}>{item}</AppText>
-              </Button>
-            );
-          })}
-        </View>
+const renderOptionSize = () => {
+  return (
+    <View style={styles.row}>
+      <AppText preset={TEXT_PRESETS.BODY_SMALL}>Size</AppText>
+      <View style={[{flexWrap: 'wrap', marginLeft: scale(6)}, styles.row]}>
+        {['S', 'M', 'L'].map((item, index) => {
+          return (
+            <Button key={index + ''} style={styles.size}>
+              <AppText preset={TEXT_PRESETS.BODY_SMALL}>{item}</AppText>
+            </Button>
+          );
+        })}
       </View>
-    );
-  };
+    </View>
+  );
+};
 
+export default function ListView() {
+  const [like, setLike] = useState(false);
   return (
     <View style={styles.container}>
       <View style={{flex: 0.3}}>
@@ -50,8 +51,11 @@ export default function ListView() {
 
         <View>{renderOptionSize()}</View>
 
-        <Button style={styles.heartContainer}>
-          <Heart strokeColor={COLORS.Primary} />
+        <Button style={styles.heartContainer} onPress={() => setLike(!like)}>
+          <Heart
+            strokeColor={COLORS.Primary}
+            fill={!like ? 'none' : COLORS.Primary}
+          />
         </Button>
       </View>
     </View>

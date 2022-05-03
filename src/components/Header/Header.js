@@ -1,13 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {scale, width} from 'react-native-utils-scale';
-import {COLORS} from 'themes/colors';
+import {hasNotch, scale, width} from 'react-native-utils-scale';
 import Button from 'components/Button/Button';
 import {Logo, Menu, Search, ShoppingBag} from 'assets/icons';
 
-export default function Header() {
+export default function Header({style: styleOverride}) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styleOverride]}>
       <Button>
         <Menu />
       </Button>
@@ -30,8 +29,9 @@ export default function Header() {
 const styles = StyleSheet.create({
   container: {
     width: width,
-    backgroundColor: COLORS.Header_Background,
+    backgroundColor: '#E7EAEF',
     padding: scale(16),
+    paddingTop: hasNotch ? scale(40) : scale(20),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
