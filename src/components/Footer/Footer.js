@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     flex: 1,
     paddingTop: scale(24),
+    width:'100%'
   },
   socials: {
     flexDirection: 'row',

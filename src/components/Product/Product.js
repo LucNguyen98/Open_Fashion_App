@@ -6,7 +6,7 @@ import GridView from './GridView';
 import HomePage from './HomePage';
 import ListView from './ListView';
 
-const Product = ({type = PRODUCT_TYPE.LIST_VIEW}) => {
+const Product = ({type = PRODUCT_TYPE.LIST_VIEW, product = {}}) => {
   switch (type) {
     case PRODUCT_TYPE.FULL:
       return <Full />;
@@ -15,7 +15,7 @@ const Product = ({type = PRODUCT_TYPE.LIST_VIEW}) => {
       return <GridView />;
 
     case PRODUCT_TYPE.HOME_PAGE:
-      return <HomePage />;
+      return <HomePage product={product} />;
     default:
       return <ListView />;
   }

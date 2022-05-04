@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import Banner from './components/Banner';
-import ArrivalList from './components/ArrivalList';
+import NewArrival from './components/NewArrival';
 
 const HomeScreen = ({navigation}) => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const HomeScreen = ({navigation}) => {
       }}
       contentContainerStyle={styles.contentContainerStyle}>
       <Banner />
-      <ArrivalList />
+      <NewArrival />
       <Footer />
     </ScrollView>
   );

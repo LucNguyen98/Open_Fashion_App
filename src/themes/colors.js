@@ -16,4 +16,5 @@ export const COLORS = {
 export const TEXT_COLORS = {
   Primary: '#202224',
   Secondary: '#727272',
+  Active: '#212806',
 };

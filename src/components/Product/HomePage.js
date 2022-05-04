@@ -3,28 +3,28 @@ import React, {useState} from 'react';
 import AppText from 'components/AppText';
 import {TEXT_PRESETS} from 'constants/theme';
 import {COLORS} from 'themes/colors';
-import {fontScale, scale} from 'react-native-utils-scale';
+import {fontScale, scale, width} from 'react-native-utils-scale';
 import {LINE_HEIGHT} from 'themes/typography';
-import Button from 'components/Button/Button';
-import {Heart} from 'assets/icons';
-import {Product1} from 'assets/images';
 
-export default function HomePage() {
+export default function HomePage({product}) {
+  const {title, image, price} = product;
   return (
     <View style={styles.container}>
       <Image
-        source={Product1}
+        source={image}
         resizeMode="cover"
         style={{width: '100%', height: scale(220)}}
       />
 
-      <View style={{paddingTop: scale(10)}}>
-        <AppText preset={TEXT_PRESETS.BODY_MEDIUM}>
-          <AppText preset={TEXT_PRESETS.SMALL_TITLE}>21WN</AppText>
+      <View style={{paddingTop: scale(10), alignItems: 'center'}}>
+        <AppText
+          style={{textAlign: 'center'}}
+          preset={TEXT_PRESETS.BODY_MEDIUM}>
+          <AppText preset={TEXT_PRESETS.SMALL_TITLE}>{title}</AppText>
           Recycle Boucle Knit Cardigan Pink
         </AppText>
 
-        <AppText style={styles.txtPrice}>$120</AppText>
+        <AppText style={styles.txtPrice}>${price}</AppText>
       </View>
     </View>
   );
@@ -32,9 +32,10 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
   container: {
-    width: scale(165),
+    width: width * 0.5 - scale(24),
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: scale(12),
   },
   txtPrice: {
     color: COLORS.Primary,
