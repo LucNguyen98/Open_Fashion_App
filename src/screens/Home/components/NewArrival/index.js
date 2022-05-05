@@ -69,7 +69,6 @@ const NewArrival = () => {
           textTransform: 'capitalize',
         }}
       />
-      <Line />
     </SafeAreaView>
   );
 };
