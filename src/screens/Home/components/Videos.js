@@ -1,15 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import VideoPlayer from 'react-native-video-player';
-import {scale, width} from 'react-native-utils-scale';
-import { ThumbnailVideo } from 'assets/images';
+import { View } from "react-native";
+import React from "react";
+import VideoPlayer from "react-native-video-player";
+import { scale, width } from "react-native-utils-scale";
+import { ThumbnailVideo } from "assets/images";
 
 const Videos = () => {
   return (
     <View>
       <VideoPlayer
         video={{
-          uri: 'https://youtu.be/IbO52_DfVtg',
+          uri: "https://youtu.be/IbO52_DfVtg",
         }}
         fullScreenOnLongPress
         videoWidth={width}
@@ -28,5 +28,3 @@ const Videos = () => {
 };
 
 export default Videos;
-
-const styles = StyleSheet.create({});

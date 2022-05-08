@@ -7,11 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' --fix",
+    "prepare": "husky install",
+    "prettier":"prettier --write src/**/*.js"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
+
     "react": "17.0.2",
     "react-native": "0.68.1",
     "react-native-fast-image": "^8.5.11",
@@ -31,9 +35,13 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-root-import": "^6.6.0",
     "eslint": "^8.13.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "metro-react-native-babel-preset": "^0.70.1",
-    "react-test-renderer": "17.0.2"
+    "react-test-renderer": "17.0.2",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2"
   },
   "jest": {
     "preset": "react-native"

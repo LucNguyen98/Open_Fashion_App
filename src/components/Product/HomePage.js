@@ -1,5 +1,5 @@
 import {StyleSheet, Image, View} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import AppText from 'components/AppText';
 import {TEXT_PRESETS} from 'constants/theme';
 import {COLORS} from 'themes/colors';

@@ -1,6 +1,5 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {COLORS} from 'themes/colors';
 import Button from 'components/Button/Button';
 import {Instagram, Line, Twitter, YouTube} from 'assets/icons';
 import {scale} from 'react-native-utils-scale';

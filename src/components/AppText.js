@@ -1,12 +1,12 @@
-import {Text} from 'react-native';
-import React from 'react';
-import {FONT_SIZE, LETTER_SPACING, LINE_HEIGHT} from 'typography';
-import {TEXT_COLORS} from 'colors';
-import {TEXT_PRESETS} from 'constants/theme';
-import {fontScale} from 'react-native-utils-scale';
+import { Text } from "react-native";
+import React from "react";
+import { FONT_SIZE, LETTER_SPACING, LINE_HEIGHT } from "typography";
+import { TEXT_COLORS } from "colors";
+import { TEXT_PRESETS } from "constants/theme";
+import { fontScale } from "react-native-utils-scale";
 const BASE_TEXT = {
   fontSize: fontScale(14),
-  fontFamily: 'Tenor Sans',
+  fontFamily: "Tenor Sans",
   color: TEXT_COLORS.Primary,
 };
 
@@ -14,7 +14,7 @@ export const presets = {
   default: BASE_TEXT,
   bold: {
     ...BASE_TEXT,
-    fontWeight: '700',
+    fontWeight: "700",
   },
 
   title: {
@@ -22,7 +22,7 @@ export const presets = {
     fontSize: FONT_SIZE.Title,
     lineHeight: LINE_HEIGHT.Title,
     letterSpacing: LETTER_SPACING.Title,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
 
   subTitle: {
@@ -30,7 +30,7 @@ export const presets = {
     fontSize: FONT_SIZE.SubTitle,
     lineHeight: LINE_HEIGHT.SubTitle,
     letterSpacing: LETTER_SPACING.SubTitle,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
 
   smallTitle: {
@@ -38,7 +38,7 @@ export const presets = {
     fontSize: FONT_SIZE.SubTitle1,
     lineHeight: LINE_HEIGHT.SubTitle1,
     letterSpacing: LETTER_SPACING.SubTitle,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
 
   bodyLarge: {
@@ -63,12 +63,8 @@ export const presets = {
   },
 };
 
-const AppText = ({children, ...props}) => {
-  const {
-    preset = TEXT_PRESETS.DEFAULT,
-    style: styleOverride,
-    ...rest
-  } = props;
+const AppText = ({ children, ...props }) => {
+  const { preset = TEXT_PRESETS.DEFAULT, style: styleOverride, ...rest } = props;
   return (
     <Text style={[presets[preset], styleOverride]} {...rest}>
       {children}

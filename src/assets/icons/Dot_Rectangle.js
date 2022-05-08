@@ -2,6 +2,7 @@ import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
 function SvgComponent(props) {
+  const {color = '#DD8560'} = props;
   return (
     <Svg
       width={6}
@@ -12,7 +13,7 @@ function SvgComponent(props) {
       {...props}>
       <Path
         transform="rotate(45 3.04 .478)"
-        fill="#DD8560"
+        fill={color}
         d="M3.03918 0.477722H7.03918V4.477722H3.03918z"
       />
     </Svg>

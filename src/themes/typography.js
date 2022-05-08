@@ -1,4 +1,4 @@
-import {fontScale, scale} from 'react-native-utils-scale';
+import { fontScale, scale } from "react-native-utils-scale";
 
 export const FONT_SIZE = {
   Title: fontScale(18),

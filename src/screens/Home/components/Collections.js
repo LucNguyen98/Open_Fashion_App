@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import AppText from 'components/AppText';
 import {TEXT_PRESETS} from 'constants/theme';

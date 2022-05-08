@@ -18,3 +18,4 @@ export {default as CollectionBanner1} from './CollectionBanner1.png';
 export {default as CollectionBanner2} from './CollectionBanner2.png';
 
 export {default as ThumbnailVideo} from './ThumbnailVideo.png';
+export {default as Product3_Lagre} from './Product3_Lagre.png';

@@ -1,10 +1,10 @@
-import {StyleSheet, ScrollView, View, Animated} from 'react-native';
-import React from 'react';
-import AppText from 'components/AppText';
-import {TEXT_PRESETS} from 'constants/theme';
-import Button from 'components/Button/Button';
-import {DotRectangle} from 'assets/icons';
-import {TEXT_COLORS} from 'themes/colors';
+import { StyleSheet, ScrollView, View, Animated } from "react-native";
+import React from "react";
+import AppText from "components/AppText";
+import { TEXT_PRESETS } from "constants/theme";
+import Button from "components/Button/Button";
+import { DotRectangle } from "assets/icons";
+import { TEXT_COLORS } from "themes/colors";
 
 export function useSpring(value, config = {}) {
   const animatedValue = React.useMemo(() => new Animated.Value(value), []);
@@ -21,7 +21,7 @@ export function useSpring(value, config = {}) {
   return animatedValue;
 }
 
-const Item = ({item, index, selectedTab, onChangeTab}) => {
+const Item = ({ item, selectedTab, onChangeTab }) => {
   const isAcive = selectedTab === item;
   const animation = useSpring(Number(isAcive));
 
@@ -40,22 +40,23 @@ const Item = ({item, index, selectedTab, onChangeTab}) => {
     <Button
       onPress={() => {
         onChangeTab(item);
-      }}>
-      <View
-        style={styles.tab}
-        onLayout={evt => (positionX.current = evt.nativeEvent.layout.x)}>
+      }}
+    >
+      <View style={styles.tab} onLayout={(evt) => (positionX.current = evt.nativeEvent.layout.x)}>
         <AppText
           preset={TEXT_PRESETS.BODY_MEDIUM}
           style={{
             color: isAcive ? TEXT_COLORS.Active : TEXT_COLORS.Secondary,
-          }}>
+          }}
+        >
           {item}
         </AppText>
         <Animated.View
           style={{
             opacity: iconVisibility,
-            transform: [{translateX: iconTranslate}],
-          }}>
+            transform: [{ translateX: iconTranslate }],
+          }}
+        >
           <DotRectangle />
         </Animated.View>
       </View>
@@ -63,16 +64,17 @@ const Item = ({item, index, selectedTab, onChangeTab}) => {
   );
 };
 
-function ProductFilter({data = [], selectedTab, onChangeTab}) {
+function ProductFilter({ data = [], selectedTab, onChangeTab }) {
   return (
     <ScrollView
       horizontal
       alwaysBounceHorizontal={false}
       alwaysBounceVertical={false}
-      contentContainerStyle={styles.scrollView}>
+      contentContainerStyle={styles.scrollView}
+    >
       {data.map((item, index) => (
         <Item
-          key={index + ''}
+          key={index + ""}
           item={item}
           selectedTab={selectedTab}
           index={index}
@@ -88,10 +90,10 @@ export default React.memo(ProductFilter);
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    justifyContent: 'space-evenly',
+    justifyContent: "space-evenly",
   },
   tab: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {hasNotch, scale, width} from 'react-native-utils-scale';
 import Button from 'components/Button/Button';

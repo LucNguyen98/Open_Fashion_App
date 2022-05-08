@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {Line} from 'assets/icons';
 import {Boss, Burberry, Catier, Gucci, Prada, TiffanyCo} from 'assets/images';
