@@ -12,6 +12,8 @@
         "themes/*": ["./src/themes/*"],
         "colors": ["./src/themes/colors"],
         "typography": ["./src/themes/typography"],
+        "services/*":["./src/services/*"],
+        "api":["./src/services/api"],
       }
     },
     "exclude": ["node_modules"]

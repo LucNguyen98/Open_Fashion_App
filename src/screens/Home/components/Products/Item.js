@@ -7,15 +7,23 @@ import { fontScale, scale, width } from "react-native-utils-scale";
 import { LINE_HEIGHT } from "themes/typography";
 
 export default function Item({ product, style: styleOverride }) {
-  const { title, image, price } = product;
+  const { title, image, price, description } = product;
   return (
     <View style={[styles.container, styleOverride]}>
-      <Image source={image} resizeMode="stretch" style={{ width: "100%", height: scale(312) }} />
+      <Image
+        source={{ uri: image }}
+        resizeMode="contain"
+        style={{ width: "100%", height: scale(312) }}
+      />
 
       <View style={styles.contentContainer}>
-        <AppText style={{ textAlign: "center" }} preset={TEXT_PRESETS.BODY_MEDIUM}>
+        <AppText
+          style={{ textAlign: "center" }}
+          preset={TEXT_PRESETS.BODY_MEDIUM}
+          numberOfLines={4}
+        >
           <AppText preset={TEXT_PRESETS.SMALL_TITLE}>{title}</AppText>
-          Recycle Boucle Knit Cardigan Pink
+          {description}
         </AppText>
 
         <AppText style={styles.txtPrice}>${price}</AppText>
