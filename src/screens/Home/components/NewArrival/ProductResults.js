@@ -7,7 +7,7 @@ import { scale } from "react-native-utils-scale";
 function ProductResults({ products = [] }) {
   return (
     <View style={styles.container}>
-      {products.slice(0, 4).map((prod, index) => {
+      {products.map((prod, index) => {
         return <Product key={index + ""} type={PRODUCT_TYPE.HOME_PAGE} product={prod} />;
       })}
     </View>

@@ -13,7 +13,7 @@ import { useProductsQuery } from "services/api/productApi";
 const Products = () => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const { data: products, isLoading, error } = useProductsQuery();
+  const { data: products } = useProductsQuery();
   const onHanleScroll = () =>
     Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
       useNativeDriver: true,
@@ -42,7 +42,7 @@ const Products = () => {
         onScroll={onHanleScroll}
         onMomentumScrollEnd={setIndex}
       >
-        {products.map((prod, index) => {
+        {products?.map((prod, index) => {
           return (
             <Item
               key={index + ""}

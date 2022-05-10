@@ -1,5 +1,5 @@
 import { StyleSheet, View, SafeAreaView } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppText from "components/AppText";
 import { BUTTON_PRESETS, TEXT_PRESETS } from "constants/theme";
 import { ForwardArrow, Line } from "assets/icons";
@@ -7,15 +7,21 @@ import ProductFilter from "./ProductFilter";
 import { scale } from "react-native-utils-scale";
 import ProductResults from "./ProductResults";
 import Button from "components/Button/Button";
-import { useProductsQuery } from "services/api/productApi";
+import { useLazyProductByCategoryQuery, useCategoriesQuery } from "services/api/productApi";
 
 const NewArrival = () => {
-  const filters = ["All", "Apparel", "Dress", "Tshirt", "Bag"];
-  const [selectedTab, setTab] = useState("All");
+  const { data: category = [] } = useCategoriesQuery();
+  const [getProducts, { data: products = [] }] = useLazyProductByCategoryQuery();
+  const [selectedTab, setTab] = useState("");
+  useEffect(() => {
+    if (category?.length > 0) {
+      setTab(category[0]);
+    }
+  }, [category]);
 
-  const { data: products } = useProductsQuery();
-
-  // console.log({ products, isLoading, error });
+  useEffect(() => {
+    getProducts(selectedTab);
+  }, [selectedTab]);
 
   return (
     <SafeAreaView forceInset={{ top: "never" }} style={styles.container}>
@@ -28,7 +34,7 @@ const NewArrival = () => {
         <Line />
       </View>
 
-      <ProductFilter data={filters} selectedTab={selectedTab} onChangeTab={setTab} />
+      <ProductFilter data={category} selectedTab={selectedTab} onChangeTab={setTab} />
       <ProductResults products={products} />
 
       <Button
